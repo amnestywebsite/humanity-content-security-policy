@@ -1,0 +1,12 @@
+.log
+.map
+.vscode
+.DS_Store
+
+assets/*
+private/.yarn
+private/.pnp.*
+private/stats.json
+private/yarn-error.log
+private/node_modules
+vendor

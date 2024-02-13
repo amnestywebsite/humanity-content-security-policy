@@ -1,0 +1,364 @@
+# Copyright (C) 2024 Amnesty International
+# This file is distributed under the same license as the Content Security Policy plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Content Security Policy 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/content-security-policy\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-02-08T16:03:17+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aicsp\n"
+
+#. Plugin Name of the plugin
+msgid "Content Security Policy"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/amnestywebsite/humanity-content-security-policy"
+msgstr ""
+
+#. Description of the plugin
+msgid "This plugin allows management of a site's Content Security Policy"
+msgstr ""
+
+#. Author of the plugin
+msgid "Amnesty International"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.amnesty.org"
+msgstr ""
+
+#. translators: [admin] shown when file fails to upload
+#: includes/class-rest-endpoint.php:81
+#: includes/class-rest-endpoint.php:82
+msgid "The uploaded file exceeds the maximum allowed size."
+msgstr ""
+
+#. translators: [admin] shown when file fails to upload
+#: includes/class-rest-endpoint.php:83
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#. translators: [admin] shown when file fails to upload
+#: includes/class-rest-endpoint.php:84
+msgid "No file was uploaded."
+msgstr ""
+
+#. translators: [admin] shown when file fails to upload
+#: includes/class-rest-endpoint.php:85
+msgid "Missing a temporary folder."
+msgstr ""
+
+#. translators: [admin] shown when file fails to upload
+#: includes/class-rest-endpoint.php:86
+msgid "Failed to write file to disk."
+msgstr ""
+
+#. translators: [admin] shown when file fails to upload
+#: includes/class-rest-endpoint.php:87
+msgid "A PHP extension stopped the file upload."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-rest-endpoint.php:231
+msgid "Invalid file supplied."
+msgstr ""
+
+#: includes/class-rest-endpoint.php:243
+msgid "Invalid file type."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:46
+msgid "Serves as a fallback for the other directives."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:47
+msgid "Restricts the URLs which can be loaded using script interfaces."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:48
+msgid "Specifies valid sources for fonts loaded using @font-face."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:49
+msgid "Specifies valid sources for nested browsing contexts loading using elements such as &lt;frame&gt; and &lt;iframe&gt;."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:50
+msgid "Specifies valid sources of images and favicons."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:51
+msgid "Specifies valid sources of application manifest files."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:52
+msgid "Specifies valid sources for loading media using the &lt;audio&gt; , &lt;video&gt; and &lt;track&gt; elements."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:53
+msgid "Specifies valid sources for the &lt;object&gt;, &lt;embed&gt;, and &lt;applet&gt; elements."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:54
+msgid "Specifies valid sources to be prefetched or prerendered."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:55
+msgid "Specifies valid sources for JavaScript."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:56
+msgid "Specifies valid sources for JavaScript inline event handlers."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:57
+msgid "Specifies valid sources for JavaScript &lt;script&gt; elements."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:58
+msgid "Specifies valid sources for stylesheets."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:59
+msgid "Specifies valid sources for inline styles applied to individual DOM elements."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:60
+msgid "Specifies valid sources for stylesheets &lt;style&gt; elements and &lt;link&gt; elements with rel=\"stylesheet\"."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:61
+msgid "Specifies valid sources for Worker, SharedWorker, or ServiceWorker scripts."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:65
+msgid "Won't allow loading of any resources. Takes precedence, and is incompatible with other options."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:66
+msgid "Only allow resources from the current origin."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:67
+msgid "The trust granted to a script in the page due to an accompanying nonce or hash is extended to the scripts it loads."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:68
+msgid "Require a sample of the violating code to be included in the violation report."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:69
+msgid "Allow use of inline resources."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:70
+msgid "Allow use of dynamic code evaluation such as eval, setImmediate, and window.execScript."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:71
+msgid "Allows enabling specific inline event handlers."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:75
+msgid "Only allow loading of resources from a specific host or hosts, with optional scheme, port, and path."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:107
+#: includes/class-settings-page.php:122
+msgid "CSP Options"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:145
+msgid "Import/Export"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:146
+msgid "Import or Export your CSP configuration"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:159
+#: views/partials/export.php:1
+msgid "Export"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:169
+msgid "Import"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:216
+msgid "Global CSP Flags"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:217
+msgid "Manage global CSP flags (i.e. ones that don't require value strings)"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:227
+msgid "Report URI"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:228
+msgid "Set the destination of violation reports, if required"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:237
+msgid "Report To"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:238
+msgid "To enable the Reporting API and collect deprecation, intervention and crash reports"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:247
+msgid "NEL"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:248
+msgid "To enable Network Error Logging. You must also enable the Reporting API above"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:257
+msgid "Report Only"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:258
+msgid "Report CSP violations without enforcing the policy."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:267
+msgid "Upgrade Insecure Requests"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:268
+msgid "Force all requests to use HTTPS."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:277
+msgid "Require Trusted Types"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:278
+msgid "Prevent scripts from writing to the DOM."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:287
+msgid "Allow GTM/GA"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:288
+msgid "Allow Google to register its Trusted Type for scripts."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:297
+msgid "Enable Script Nonces"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:316
+msgid "Document Directives"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:318
+msgid "Document directives govern the properties of a document or worker environment to which a policy applies"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:332
+msgid "Base URI"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:334
+msgid "Restrict which URLs can be used in a document's &lt;base&gt; element"
+msgstr ""
+
+#: includes/class-settings-page.php:344
+msgid "Applies restrictions to a page's actions including preventing popups, preventing the execution of plugins and scripts, and enforcing a same-origin policy"
+msgstr ""
+
+#: includes/class-settings-page.php:347
+msgid "None (disabled)"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:379
+msgid "Navigation Directives"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:380
+msgid "Navigation directives govern to which locations a user can navigate or submit a form, for example"
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:394
+msgid "Restricts the URLs which can be used as the target of form submissions from a given context."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:404
+msgid "Specifies valid parents that may embed a page using &lt;frame&gt;, &lt;iframe&gt;, &lt;object&gt;, &lt;embed&gt;, or &lt;applet&gt;."
+msgstr ""
+
+#. translators: [admin]
+#: includes/class-settings-page.php:414
+msgid "Restricts the URLs to which a document can initiate navigations by any means including &lt;form&gt; (if form-action is not specified), &lt;a&gt;, window.location, window.open, etc. This is an enforcement on what navigations this document initiates, not on what this document is allowed to navigate to."
+msgstr ""
+
+#: private/src/admin.js:45
+msgid "Unable to export."
+msgstr ""
