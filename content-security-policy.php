@@ -87,12 +87,32 @@ class Init {
 
 		static::$nonces_enabled = csp_is_bool( $enabled );
 
+		add_filter( 'register_translatable_package', [ $this, 'register_translatable_package' ], 12 );
+
 		add_action( 'plugins_loaded', [ $this, 'textdomain' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_frontend_assets' ], 0 );
 		add_action( 'admin_enqueue_scripts', [ $this, 'register_admin_assets' ] );
 
 		add_action( 'plugins_loaded', [ $this, 'maybe_ob_start' ], 0 );
 		add_action( 'shutdown', [ $this, 'maybe_ob_end_clean' ], PHP_INT_MAX );
+	}
+
+	/**
+	 * Register this plugin as a translatable package
+	 *
+	 * @param array<int,array<string,string>> $packages existing packages
+	 *
+	 * @return array<int,array<string,string>>
+	 */
+	public function register_translatable_package( array $packages = [] ): array {
+		$packages[] = [
+			'id'     => 'humanity-content-security-policy',
+			'path'   => realpath( __DIR__ ),
+			'pot'    => realpath( __DIR__ ) . '/languages/aicsp.pot',
+			'domain' => 'aicsp',
+		];
+
+		return $packages;
 	}
 
 	/**

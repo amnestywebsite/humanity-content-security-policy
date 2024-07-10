@@ -12,19 +12,22 @@
     }
   },
   "scripts": {
-    "lint": "./vendor/bin/phpcs .",
     "lang": [
-      "type msgmerge &> /dev/null || { echo 'Please install gettext'; exit 1; }",
-      "wp i18n make-pot . ./languages/aicsp.pot --domain=aicsp --exclude=private/node_modules,assets,vendor",
-      "for p in ./languages/*.po; do msguniq \"$p\" -o \"$p\"; done",
-      "for p in ./languages/*.po; do msgmerge --quiet -o \"$p.tmp\" --no-fuzzy-matching \"$p\" \"./languages/aicsp.pot\"; done",
-      "for p in ./languages/*.po; do msgattrib --no-obsolete -o \"$p\" \"$p.tmp\"; done",
-      "for p in ./languages/*.po.tmp; do rm \"$p\"; done",
-      "for p in ./languages/*.po; do msgfmt -cv --statistics \"$p\" -o \"${p%.*}.mo\"; done"
+      "@makePot",
+      "@updatePoMo"
+    ],
+    "lint": "./vendor/bin/phpcs .",
+    "makePot": "wp i18n make-pot . ./languages/aicsp.pot --domain=aicsp --exclude=private,vendor",
+    "updatePoMo": [
+      "wp i18n update-po ./languages/aicsp.pot",
+      "wp i18n make-mo ./languages",
+      "wp i18n make-json ./languages --no-purge"
     ]
   },
   "scripts-descriptions": {
-    "lang": "Updates the POT file, then updates any PO files, and (re)compiles associated MO files",
-    "lint": "Runs PHP coding standard checks"
+    "lang": "Updates the POT file; updates PO files; recompiles MO files; extracts JS strings to JSON files",
+    "lint": "Runs PHP coding standard checks",
+    "makePot": "Updates the POT file",
+    "updatePoMo": "Updates the PO files from the POT file; recompiles MO files; extracts JS strings to JSON files"
   }
 }

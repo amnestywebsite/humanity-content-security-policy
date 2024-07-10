@@ -1,45 +1,42 @@
-# Copyright (C) 2021 Big Bite®
-# This file is distributed under the same license as the Amnesty International CSP plugin.
 msgid ""
 msgstr ""
 "Project-Id-Version: Amnesty International CSP 1.1.2\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/content-security-"
-"policy\n"
-"POT-Creation-Date: 2024-02-08T16:03:17+00:00\n"
-"PO-Revision-Date: 2022-09-08 16:25+0100\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/content-security-policy\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"POT-Creation-Date: 2024-02-08T16:03:17+00:00\n"
+"PO-Revision-Date: 2022-09-08 16:25+0100\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 "X-Generator: Poedit 3.1.1\n"
 "X-Domain: aicsp\n"
 
-#. Plugin Name of the plugin
-msgid "Content Security Policy"
-msgstr ""
-
 #. Plugin URI of the plugin
+#: content-security-policy.php
 msgid "https://github.com/amnestywebsite/humanity-content-security-policy"
 msgstr "https://github.com/amnestywebsite/humanity-content-security-policy"
 
 #. Description of the plugin
+#: content-security-policy.php
 msgid "This plugin allows management of a site's Content Security Policy"
 msgstr "يسمح هذا المكون الإضافي بإدارة سياسة أمان المحتوى الخاصة بالموقع"
 
 #. Author of the plugin
+#: content-security-policy.php
 msgid "Amnesty International"
 msgstr ""
 
 #. Author URI of the plugin
+#: content-security-policy.php
 msgid "https://www.amnesty.org"
 msgstr ""
 
 #. translators: [admin] shown when file fails to upload
-#: includes/class-rest-endpoint.php:81 includes/class-rest-endpoint.php:82
+#: includes/class-rest-endpoint.php:81
+#: includes/class-rest-endpoint.php:82
 msgid "The uploaded file exceeds the maximum allowed size."
 msgstr ""
 
@@ -94,9 +91,7 @@ msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:49
-msgid ""
-"Specifies valid sources for nested browsing contexts loading using elements "
-"such as &lt;frame&gt; and &lt;iframe&gt;."
+msgid "Specifies valid sources for nested browsing contexts loading using elements such as &lt;frame&gt; and &lt;iframe&gt;."
 msgstr ""
 
 #. translators: [admin]
@@ -111,16 +106,12 @@ msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:52
-msgid ""
-"Specifies valid sources for loading media using the &lt;audio&gt; , &lt;"
-"video&gt; and &lt;track&gt; elements."
+msgid "Specifies valid sources for loading media using the &lt;audio&gt; , &lt;video&gt; and &lt;track&gt; elements."
 msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:53
-msgid ""
-"Specifies valid sources for the &lt;object&gt;, &lt;embed&gt;, and &lt;"
-"applet&gt; elements."
+msgid "Specifies valid sources for the &lt;object&gt;, &lt;embed&gt;, and &lt;applet&gt; elements."
 msgstr ""
 
 #. translators: [admin]
@@ -150,28 +141,22 @@ msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:59
-msgid ""
-"Specifies valid sources for inline styles applied to individual DOM elements."
+msgid "Specifies valid sources for inline styles applied to individual DOM elements."
 msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:60
-msgid ""
-"Specifies valid sources for stylesheets &lt;style&gt; elements and &lt;"
-"link&gt; elements with rel=\"stylesheet\"."
+msgid "Specifies valid sources for stylesheets &lt;style&gt; elements and &lt;link&gt; elements with rel=\"stylesheet\"."
 msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:61
-msgid ""
-"Specifies valid sources for Worker, SharedWorker, or ServiceWorker scripts."
+msgid "Specifies valid sources for Worker, SharedWorker, or ServiceWorker scripts."
 msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:65
-msgid ""
-"Won't allow loading of any resources. Takes precedence, and is incompatible "
-"with other options."
+msgid "Won't allow loading of any resources. Takes precedence, and is incompatible with other options."
 msgstr ""
 
 #. translators: [admin]
@@ -181,16 +166,12 @@ msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:67
-msgid ""
-"The trust granted to a script in the page due to an accompanying nonce or "
-"hash is extended to the scripts it loads."
+msgid "The trust granted to a script in the page due to an accompanying nonce or hash is extended to the scripts it loads."
 msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:68
-msgid ""
-"Require a sample of the violating code to be included in the violation "
-"report."
+msgid "Require a sample of the violating code to be included in the violation report."
 msgstr ""
 
 #. translators: [admin]
@@ -200,9 +181,7 @@ msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:70
-msgid ""
-"Allow use of dynamic code evaluation such as eval, setImmediate, and window."
-"execScript."
+msgid "Allow use of dynamic code evaluation such as eval, setImmediate, and window.execScript."
 msgstr ""
 
 #. translators: [admin]
@@ -212,13 +191,12 @@ msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:75
-msgid ""
-"Only allow loading of resources from a specific host or hosts, with optional "
-"scheme, port, and path."
+msgid "Only allow loading of resources from a specific host or hosts, with optional scheme, port, and path."
 msgstr ""
 
 #. translators: [admin]
-#: includes/class-settings-page.php:107 includes/class-settings-page.php:122
+#: includes/class-settings-page.php:107
+#: includes/class-settings-page.php:122
 msgid "CSP Options"
 msgstr "خيارات الطاقة الشمسية المركزة"
 
@@ -233,7 +211,8 @@ msgid "Import or Export your CSP configuration"
 msgstr ""
 
 #. translators: [admin]
-#: includes/class-settings-page.php:159 views/partials/export.php:1
+#: includes/class-settings-page.php:159
+#: views/partials/export.php:1
 msgid "Export"
 msgstr ""
 
@@ -269,9 +248,7 @@ msgstr "تقديم تقرير إلى"
 
 #. translators: [admin]
 #: includes/class-settings-page.php:238
-msgid ""
-"To enable the Reporting API and collect deprecation, intervention and crash "
-"reports"
+msgid "To enable the Reporting API and collect deprecation, intervention and crash reports"
 msgstr ""
 
 #. translators: [admin]
@@ -281,8 +258,7 @@ msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:248
-msgid ""
-"To enable Network Error Logging. You must also enable the Reporting API above"
+msgid "To enable Network Error Logging. You must also enable the Reporting API above"
 msgstr ""
 
 #. translators: [admin]
@@ -337,9 +313,7 @@ msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:318
-msgid ""
-"Document directives govern the properties of a document or worker "
-"environment to which a policy applies"
+msgid "Document directives govern the properties of a document or worker environment to which a policy applies"
 msgstr ""
 
 #. translators: [admin]
@@ -353,10 +327,7 @@ msgid "Restrict which URLs can be used in a document's &lt;base&gt; element"
 msgstr ""
 
 #: includes/class-settings-page.php:344
-msgid ""
-"Applies restrictions to a page's actions including preventing popups, "
-"preventing the execution of plugins and scripts, and enforcing a same-origin "
-"policy"
+msgid "Applies restrictions to a page's actions including preventing popups, preventing the execution of plugins and scripts, and enforcing a same-origin policy"
 msgstr ""
 
 #: includes/class-settings-page.php:347
@@ -370,34 +341,30 @@ msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:380
-msgid ""
-"Navigation directives govern to which locations a user can navigate or "
-"submit a form, for example"
+msgid "Navigation directives govern to which locations a user can navigate or submit a form, for example"
 msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:394
-msgid ""
-"Restricts the URLs which can be used as the target of form submissions from "
-"a given context."
+msgid "Restricts the URLs which can be used as the target of form submissions from a given context."
 msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:404
-msgid ""
-"Specifies valid parents that may embed a page using &lt;frame&gt;, &lt;"
-"iframe&gt;, &lt;object&gt;, &lt;embed&gt;, or &lt;applet&gt;."
+msgid "Specifies valid parents that may embed a page using &lt;frame&gt;, &lt;iframe&gt;, &lt;object&gt;, &lt;embed&gt;, or &lt;applet&gt;."
 msgstr ""
 
 #. translators: [admin]
 #: includes/class-settings-page.php:414
-msgid ""
-"Restricts the URLs to which a document can initiate navigations by any means "
-"including &lt;form&gt; (if form-action is not specified), &lt;a&gt;, window."
-"location, window.open, etc. This is an enforcement on what navigations this "
-"document initiates, not on what this document is allowed to navigate to."
+msgid "Restricts the URLs to which a document can initiate navigations by any means including &lt;form&gt; (if form-action is not specified), &lt;a&gt;, window.location, window.open, etc. This is an enforcement on what navigations this document initiates, not on what this document is allowed to navigate to."
 msgstr ""
 
-#: private/src/admin.js:45
+#: assets/admin.js:2
+#: assets/admin.js:6342
 msgid "Unable to export."
+msgstr ""
+
+#. Plugin Name of the plugin
+#: content-security-policy.php
+msgid "Humanity Content Security Policy"
 msgstr ""
