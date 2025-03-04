@@ -1,21 +1,25 @@
 <?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
 
+/**
+ * Plugin Name:       Humanity Content Security Policy
+ * Plugin URI:        https://github.com/amnestywebsite/humanity-content-security-policy
+ * Description:       This plugin allows management of a site's Content Security Policy
+ * Version:           1.0.0
+ * Author:            Amnesty International
+ * Author URI:        https://www.amnesty.org
+ * License:           GPL-2.0-or-later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       aicsp
+ * Domain Path:       /languages
+ * Network:           false
+ * Requires PHP:      8.2.0
+ * Requires at least: 5.8.0
+ * Tested up to:      6.6.2
+ */
+
 declare( strict_types = 1 );
 
 namespace Amnesty\CSP;
-
-/*
-Plugin Name:       Humanity Content Security Policy
-Plugin URI:        https://github.com/amnestywebsite/humanity-content-security-policy
-Description:       This plugin allows management of a site's Content Security Policy
-Version:           1.0.0
-Author:            Amnesty International
-Author URI:        https://www.amnesty.org
-Textdomain:        aicsp
-Requires at least: 5.8.0
-Tested up to:      6.4.2
-Requires PHP:      8.2
-*/
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
