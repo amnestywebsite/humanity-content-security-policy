@@ -94,7 +94,7 @@ class Init {
 
 		add_filter( 'register_translatable_package', [ $this, 'register_translatable_package' ], 12 );
 
-		add_action( 'plugins_loaded', [ $this, 'textdomain' ] );
+		add_action( 'init', [ $this, 'textdomain' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_frontend_assets' ], 0 );
 		add_action( 'admin_enqueue_scripts', [ $this, 'register_admin_assets' ] );
 
