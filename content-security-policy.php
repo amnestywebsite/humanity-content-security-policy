@@ -15,6 +15,7 @@
  * Requires PHP:      8.2.0
  * Requires at least: 5.8.0
  * Tested up to:      6.7.2
+ * Requires Plugins:  cmb2
  */
 
 declare( strict_types = 1 );
@@ -93,7 +94,7 @@ class Init {
 
 		add_filter( 'register_translatable_package', [ $this, 'register_translatable_package' ], 12 );
 
-		add_action( 'plugins_loaded', [ $this, 'textdomain' ] );
+		add_action( 'init', [ $this, 'textdomain' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_frontend_assets' ], 0 );
 		add_action( 'admin_enqueue_scripts', [ $this, 'register_admin_assets' ] );
 
