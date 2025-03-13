@@ -20,7 +20,7 @@ jobs:
       - run: composer install --no-ansi --no-dev --no-interaction --no-plugins --no-progress --no-scripts --classmap-authoritative
       - run: composer du -o
       - run: cd private && corepack enable && yarn && yarn build && cd ..
-      - run: zip -r ../humanity-content-security-policy.zip ./ -x docs\* -x private\* -x vendor\* -x .\* -x CHANGELOG.md -x CODE_OF_CONDUCT.md -x composer.json -x composer.lock -x CONTRIBUTING.md -x LICENSE.md -x phpcs.xml -x SECURITY.md
+      - run: zip -r humanity-content-security-policy.zip ./ -x docs\* -x private\* -x vendor\* -x .\* -x CHANGELOG.md -x CODE_OF_CONDUCT.md -x composer.json -x composer.lock -x CONTRIBUTING.md -x LICENSE.md -x phpcs.xml -x SECURITY.md
       - uses: softprops/action-gh-release@v2
         with:
           draft: true
