@@ -184,11 +184,11 @@ class Init {
 	 * @return string
 	 */
 	public function add_nonces( string $output ): string {
-		return preg_replace_callback(
+		return (string) preg_replace_callback(
 			'/<script.*?>.*?<\/script>/s',
 			function ( array $found ): string {
 			// phpcs:ignore WordPressVIPMinimum.Variables.VariableAnalysis.StaticInsideClosure
-				return str_replace( '<script ', sprintf( '<script nonce="%s" ', static::$nonce ), $found[0] );
+				return (string) str_replace( '<script ', sprintf( '<script nonce="%s" ', static::$nonce ), $found[0] );
 			},
 			$output
 		);
