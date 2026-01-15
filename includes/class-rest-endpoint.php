@@ -76,7 +76,14 @@ class REST_Endpoint {
 	 */
 	public function __construct() {
 		add_action( 'rest_api_init', [ $this, 'register' ] );
+	}
 
+	/**
+	 * Register the routes
+	 *
+	 * @return void
+	 */
+	public function register(): void {
 		static::$errors = [
 			UPLOAD_ERR_INI_SIZE   => /* translators: [admin] shown when file fails to upload */ esc_html__( 'The uploaded file exceeds the maximum allowed size.', 'aicsp' ),
 			UPLOAD_ERR_FORM_SIZE  => /* translators: [admin] shown when file fails to upload */ esc_html__( 'The uploaded file exceeds the maximum allowed size.', 'aicsp' ),
@@ -86,14 +93,7 @@ class REST_Endpoint {
 			UPLOAD_ERR_CANT_WRITE => /* translators: [admin] shown when file fails to upload */ esc_html__( 'Failed to write file to disk.', 'aicsp' ),
 			UPLOAD_ERR_EXTENSION  => /* translators: [admin] shown when file fails to upload */ esc_html__( 'A PHP extension stopped the file upload.', 'aicsp' ),
 		];
-	}
 
-	/**
-	 * Register the routes
-	 *
-	 * @return void
-	 */
-	public function register(): void {
 		register_rest_route(
 			'amnesty/v1',
 			'csp',
@@ -101,7 +101,7 @@ class REST_Endpoint {
 				'methods'             => WP_REST_Server::READABLE,
 				'callback'            => [ $this, 'export' ],
 				'permission_callback' => [ $this, 'permissions' ],
-			] 
+			]
 		);
 
 		register_rest_route(
@@ -111,7 +111,7 @@ class REST_Endpoint {
 				'methods'             => WP_REST_Server::CREATABLE,
 				'callback'            => [ $this, 'import' ],
 				'permission_callback' => [ $this, 'permissions' ],
-			] 
+			]
 		);
 	}
 
@@ -131,9 +131,9 @@ class REST_Endpoint {
 	/**
 	 * Export the current CSP
 	 *
-	 * @return \WP_REST_Response
+	 * @return \WP_REST_Response|WP_Error
 	 */
-	public function export(): WP_REST_Response {
+	public function export(): WP_REST_Response|WP_Error {
 		if ( is_plugin_active_for_network( Init::$plugin ) ) {
 			$raw_settings = get_site_option( 'amnesty_csp' );
 		} else {
@@ -182,12 +182,12 @@ class REST_Endpoint {
 	 *
 	 * @return \WP_REST_Response|\WP_Error
 	 */
-	public function import( WP_REST_Request $request ) {
+	public function import( WP_REST_Request $request ): WP_REST_Response|WP_Error {
 		$files = $request->get_file_params();
 		$json  = $this->get_valid_json( $files );
 
 		if ( is_wp_error( $json ) ) {
-			return $json;
+			return rest_ensure_response( $json );
 		}
 
 		$settings = [];
@@ -207,7 +207,7 @@ class REST_Endpoint {
 			}
 		}
 
-		$settings = array_merge( $settings, $this->process_import( $json ) );
+		$settings = array_merge( $settings, $this->process_import( (array) $json ) );
 
 		$this->save_settings( $settings );
 
@@ -236,14 +236,23 @@ class REST_Endpoint {
 		}
 
 		$finfo = finfo_open( FILEINFO_MIME );
-		$mime  = finfo_file( $finfo, $files['csp']['tmp_name'] );
+
+		if ( false === $finfo ) {
+			return new WP_Error( 'rest_upload_file_error', static::$errors[ UPLOAD_ERR_CANT_WRITE ], [ 'status' => 500 ] );
+		}
+
+		$mime = finfo_file( $finfo, $files['csp']['tmp_name'] );
 		finfo_close( $finfo );
+
+		if ( false === $mime ) {
+			return new WP_Error( 'rest_upload_file_error', static::$errors[ UPLOAD_ERR_CANT_WRITE ], [ 'status' => 500 ] );
+		}
 
 		if ( 0 !== strpos( $mime, 'application/json' ) ) {
 			return new WP_Error( 'rest_upload_file_error', esc_html__( 'Invalid file type.', 'aicsp' ), [ 'status' => 400 ] );
 		}
 
-		$json = json_decode( file_get_contents( $files['csp']['tmp_name'] ), true );
+		$json = json_decode( (string) file_get_contents( $files['csp']['tmp_name'] ), true );
 
 		if ( json_last_error() !== JSON_ERROR_NONE ) {
 			return new WP_Error( 'json_error', esc_html( json_last_error_msg() ), [ 'status' => 500 ] );
