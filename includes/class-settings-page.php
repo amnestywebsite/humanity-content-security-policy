@@ -41,7 +41,34 @@ class Settings_Page {
 	 */
 	public function __construct() {
 		add_action( 'cmb2_admin_init', [ $this, 'settings' ], 15 );
+	}
 
+	/**
+	 * Declare Settings
+	 *
+	 * @return void
+	 */
+	public function settings(): void {
+		$this->define_strings();
+
+		$settings = $this->create_metabox();
+
+		$this->import_export( $settings );
+		$this->global( $settings );
+		$this->document( $settings );
+		$this->navigation( $settings );
+
+		foreach ( static::$directives as $directive => $description ) {
+			$this->directive( $directive, $settings );
+		}
+	}
+
+	/**
+	 * Set translatable strings for directives
+	 *
+	 * @return void
+	 */
+	protected function define_strings(): void {
 		static::$directives = [
 			'default-src'     => /* translators: [admin] */ esc_html__( 'Serves as a fallback for the other directives.', 'aicsp' ),
 			'connect-src'     => /* translators: [admin] */ esc_html__( 'Restricts the URLs which can be loaded using script interfaces.', 'aicsp' ),
@@ -76,23 +103,6 @@ class Settings_Page {
 		];
 	}
 
-	/**
-	 * Declare Settings
-	 *
-	 * @return void
-	 */
-	public function settings(): void {
-		$settings = $this->create_metabox();
-
-		$this->import_export( $settings );
-		$this->global( $settings );
-		$this->document( $settings );
-		$this->navigation( $settings );
-
-		foreach ( static::$directives as $directive => $description ) {
-			$this->directive( $directive, $settings );
-		}
-	}
 
 	/**
 	 * Create the metabox
@@ -199,7 +209,7 @@ class Settings_Page {
 
 		ob_start();
 		require $path;
-		return ob_get_clean();
+		return (string) ob_get_clean();
 	}
 
 	/**
