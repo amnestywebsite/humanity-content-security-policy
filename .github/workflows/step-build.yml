@@ -1,0 +1,46 @@
+on:
+  workflow_call:
+    inputs:
+      stage:
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        id: composer-dev-cache
+        with:
+          path: ./vendor
+          key: ${{ inputs.stage }}-${{ hashFiles('./composer.lock') }}
+      - name: Install Composer Dependencies
+        if: ${{ steps.composer-dev-cache.outputs.cache-hit != 'true' }}
+        run: composer install
+      - run: composer lint
+      - run: cd private && corepack enable
+      - uses: actions/cache@v4
+        id: yarn-cache
+        with:
+          path: |
+            ./private/node_modules
+            ./private/.yarn
+          key: ${{ inputs.stage }}-${{ hashFiles('./yarn.lock') }}
+      - name: Install Yarn Dependencies
+        run: cd private && yarn --immutable
+      - run: cd private && yarn lint
+      - run: cd private && yarn build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.stage }}
+          overwrite: true
+          path: |
+            .
+            !./private/node_modules
+            !./vendor

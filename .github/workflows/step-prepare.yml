@@ -1,0 +1,40 @@
+on:
+  workflow_call:
+    inputs:
+      stage:
+        required: true
+        type: string
+      asset:
+        required: true
+        type: string
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.stage }}
+          path: .
+      - uses: actions/cache@v4
+        id: composer-cache
+        with:
+          path: ./vendor
+          key: ${{ inputs.stage }}-${{ hashFiles('./composer.lock') }}
+      - name: Install Composer Dependencies
+        if: ${{ steps.composer-cache.outputs.cache-hit != 'true' }}
+        run: composer install
+      - run: composer lang
+      - run: composer install --no-ansi --no-dev --no-interaction --no-plugins --no-progress --no-scripts
+      - run: composer du -a
+      - run: zip -r ${{ inputs.asset }} ./ -x docs\* -x private\* -x vendor\* -x .\* -x CHANGELOG.md -x CODE_OF_CONDUCT.md -x composer.json -x composer.lock -x CONTRIBUTING.md -x LICENSE.md -x phpcs.xml -x SECURITY.md
+      - uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          files: ${{ inputs.asset }}
+          target_commitish: ${{ inputs.stage }}
