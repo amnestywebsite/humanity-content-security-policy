@@ -4,7 +4,7 @@
  * Plugin Name:       Humanity Content Security Policy
  * Plugin URI:        https://github.com/amnestywebsite/humanity-content-security-policy
  * Description:       This plugin allows management of a site's Content Security Policy
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Amnesty International
  * Author URI:        https://www.amnesty.org
  * License:           GPL-2.0-or-later
