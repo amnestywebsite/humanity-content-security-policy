@@ -25,4 +25,4 @@ jobs:
         with:
           draft: true
           files: humanity-content-security-policy-staging.zip
-          target_commitish: main
+          target_commitish: staging
