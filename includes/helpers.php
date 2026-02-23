@@ -48,7 +48,7 @@ if ( ! function_exists( 'csp_is_bool' ) ) {
 				break;
 		}
 
-		return ! ! $value;
+		return (bool) $value;
 	}
 	// phpcs:enable Generic.Metrics.CyclomaticComplexity.TooHigh
 }
