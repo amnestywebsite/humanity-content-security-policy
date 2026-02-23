@@ -1,0 +1,9 @@
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  build:
+    uses: ./.github/workflows/step-build.yml
+    with:
+      stage: ${{ github.sha }}

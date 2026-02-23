@@ -12,22 +12,20 @@
     }
   },
   "scripts": {
-    "lang": [
-      "@makePot",
-      "@updatePoMo"
-    ],
     "lint": "./vendor/bin/phpcs .",
-    "makePot": "wp i18n make-pot . ./languages/aicsp.pot --domain=aicsp --exclude=private,vendor",
-    "updatePoMo": [
-      "wp i18n update-po ./languages/aicsp.pot",
-      "wp i18n make-mo ./languages",
-      "wp i18n make-json ./languages --no-purge"
-    ]
+		"lang": ["@makePot", "@updatePoMo"],
+		"makePot": "@wp i18n make-pot . ./languages/aicsp.pot --domain=aicsp --exclude=src,vendor",
+		"updatePoMo": [
+			"@wp i18n update-po ./languages/aicsp.pot",
+			"@wp i18n make-mo ./languages",
+			"@wp i18n make-php ./languages",
+			"@wp i18n make-json ./languages --no-purge"
+		]
   },
   "scripts-descriptions": {
-    "lang": "Updates the POT file; updates PO files; recompiles MO files; extracts JS strings to JSON files",
     "lint": "Runs PHP coding standard checks",
+    "lang": "runs makePot and updatePoMo",
     "makePot": "Updates the POT file",
-    "updatePoMo": "Updates the PO files from the POT file; recompiles MO files; extracts JS strings to JSON files"
+    "updatePoMo": "Updates the PO files from the POT file; compiles to MO, JSON (JED), PHP"
   }
 }
