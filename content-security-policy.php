@@ -4,7 +4,7 @@
  * Plugin Name:       Humanity Content Security Policy
  * Plugin URI:        https://github.com/amnestywebsite/humanity-content-security-policy
  * Description:       This plugin allows management of a site's Content Security Policy
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Amnesty International
  * Author URI:        https://www.amnesty.org
  * License:           GPL-2.0-or-later
@@ -184,11 +184,11 @@ class Init {
 	 * @return string
 	 */
 	public function add_nonces( string $output ): string {
-		return preg_replace_callback(
+		return (string) preg_replace_callback(
 			'/<script.*?>.*?<\/script>/s',
 			function ( array $found ): string {
-			// phpcs:ignore WordPressVIPMinimum.Variables.VariableAnalysis.StaticInsideClosure
-				return str_replace( '<script ', sprintf( '<script nonce="%s" ', static::$nonce ), $found[0] );
+				// phpcs:ignore WordPressVIPMinimum.Variables.VariableAnalysis.StaticInsideClosure
+				return (string) str_replace( '<script ', sprintf( '<script nonce="%s" ', static::$nonce ), $found[0] );
 			},
 			$output
 		);
