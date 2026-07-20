@@ -1,3 +1,11 @@
+### v1.0.2
+Fixes:
+- Load translatable strings later
+
+CI:
+- Update build process
+- Fix target committish
+
 ### v1.0.1
 Fixes:
 - Load text domain later (WP 6.7 compat.)
